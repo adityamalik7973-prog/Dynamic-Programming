@@ -74,11 +74,18 @@ int spaceOptimised(int n, vector<int> &val, vector<int> &wt, int cap) {
 
 
 int main() {
-    vector<int> val = {10, 40, 50, 70};
-    vector<int> wt = {1, 3, 4, 5};
-    int capacity = 8;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
-    cout << "Maximum profit: " << spaceOptimised(val.size(),val, wt, capacity) << endl;
+    int n, capacity;
+    cin >> n >> capacity;
+
+    vector<int> val(n), wt(n);
+    for (int i = 0; i < n; i++) {
+        cin >> wt[i] >> val[i];
+    }
+
+    cout << spaceOptimised(n, val, wt, capacity) << endl;
 
     return 0;
 }

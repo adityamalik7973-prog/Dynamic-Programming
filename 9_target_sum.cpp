@@ -45,14 +45,21 @@ int spaceOptimised(int n, vector<int> &nums, int target){
     return prev[target];
 }
 int main(){
-    vector<int> nums={12,25,42,49,41,15,22,34,28,31};
-    int target=35;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n,target;
+    cin>>n>>target;
+    vector<int> nums(n);
+    for(int i=0;i<n;i++)cin>>nums[i];
+
     int sum=accumulate(nums.begin(),nums.end(),0);
-    if((abs(sum+target))%2==1)cout<<0<<endl;
+    if(abs(target)>sum || (sum+target)%2!=0)cout<<0<<endl;
     else{
-        int req=abs(sum+target);
+        int req=sum+target;
         req/=2;
         vector<vector<int>> dp(nums.size()+1,vector<int> (req+1,-1));
         cout<<spaceOptimised(nums.size(),nums,req);
     }
+    return 0;
 }

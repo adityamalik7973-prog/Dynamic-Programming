@@ -40,7 +40,7 @@ ll space_optimized(ll n,ll w,vector<ll> &val,vector<ll> &weight){
 }
 void solve(){
     ll n,w;cin>>n>>w;
-    vector<ll> val(n+1),weight(n+1);
+    vector<ll> val(n),weight(n);
     for(ll i=0;i<n;i++)cin>>weight[i]>>val[i];
     vector<vector<ll>> dp(n+1,vector<ll> (w+1,-1));
     cout<<space_optimized(n,w,val,weight);

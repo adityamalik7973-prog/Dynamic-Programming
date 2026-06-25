@@ -1,6 +1,6 @@
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 int memo(int n,vector<int> &dp,vector<int> &heights){
     if(n==0)return 0;
     if(n==1)return abs(heights[1]-heights[0]);
@@ -16,7 +16,15 @@ int tab(int n,vector<int> &dp,vector<int> &heights){
     return dp[n];
 }
 int main(){
-    vector<int> heights={7,5,1,2,6};
-    vector<int> dp(heights.size()+1,-1);
-    cout<<tab(heights.size()-1,dp,heights);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    cin>>n;
+    vector<int> heights(n);
+    for(int i=0;i<n;i++)cin>>heights[i];
+
+    vector<int> dp(n,-1);
+    cout<<tab(n-1,dp,heights);
+    return 0;
 }

@@ -56,14 +56,21 @@ bool ultraSpaceOptimised(int n,vector<int> &nums,int target){
     return dp[target];
 }
 int main(){
-    vector<int> nums={1,2,3,5};
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    cin>>n;
+    vector<int> nums(n);
+    for(int i=0;i<n;i++)cin>>nums[i];
+
     int sum=accumulate(nums.begin(),nums.end(),0);
     if(sum%2==1){
         cout<<0<<endl;
     }else{
         int target=sum/2;
         vector<vector<int>> dp(nums.size()+1,vector<int> (target+1,-1));
-        cout<<tabulation(nums.size(),nums,target);
+        cout<<ultraSpaceOptimised(nums.size(),nums,target);
     }
     return 0;
 }

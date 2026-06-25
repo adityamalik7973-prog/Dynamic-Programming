@@ -35,8 +35,8 @@ int spaceOptimised(int n,vector<int> &prices){
     for(int i=n-1;i>=0;i--){
         for(int j=i+1;j<n;j++){
             int day=n-(j-i);
-            int op1=price[i]*day+prev[j];
-            int op2=price[j]*day+curr[j-1];
+            int op1=prices[i]*day+prev[j];
+            int op2=prices[j]*day+curr[j-1];
             curr[j]=max(op1,op2);
         }
         prev=curr;
@@ -60,9 +60,13 @@ int ultraspaceOptimised(int n, vector<int> &prices) {
     return dp[n - 1];
 }
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     int n;cin>>n;
     vector<int> prices(n);
     for(int i=0;i<n;i++)cin>>prices[i];
     vector<vector<int>> dp(n+1,vector<int> (n+1,-1));
     cout<<tabulation(n,prices);
+    return 0;
 }

@@ -44,10 +44,16 @@ int spaceOptimised(int n,vector<int> &coins,int amount){
     return dp[amount];
 }
 int main(){
-    vector<int> coins={1,2,5};
-    int n=coins.size();
-    int amount=19;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n,amount;
+    cin>>n>>amount;
+    vector<int> coins(n);
+    for(int i=0;i<n;i++)cin>>coins[i];
+
     vector<vector<int>> dp(n+1,vector<int> (amount+1,-1));
     int ans=spaceOptimised(n,coins,amount);
     cout<<(ans==INT_MAX?-1:ans);
+    return 0;
 }

@@ -1,6 +1,6 @@
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 int memo(int n,vector<int> &dp,vector<int> &nums,int s){
     if(n<s)return 0;
     if(n==s)return nums[s];
@@ -21,8 +21,14 @@ int tab(int n,vector<int> &nums,int s){
     return dp[n];
 }
 int main(){
-    vector<int> nums={1,5,2,1,6};
-    int n=nums.size();
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    cin>>n;
+    vector<int> nums(n);
+    for(int i=0;i<n;i++)cin>>nums[i];
+
     if(n==1){
         cout<<nums[0];
         return 0;
